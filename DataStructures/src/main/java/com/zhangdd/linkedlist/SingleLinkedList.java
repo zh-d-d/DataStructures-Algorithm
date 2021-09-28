@@ -139,6 +139,37 @@ public class SingleLinkedList {
         }
     }
 
+    /**
+     * 获取链表长度
+     */
+    public int getLength(Node headNode) {
+        Node temp = headNode.next;
+        int count = 0;
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+        return count;
+    }
+
+    /**
+     * 获取倒数第k个节点
+     *
+     * @param headNode 链表头节点
+     * @param index    节点索引
+     */
+    public Node findLastIndexNode(Node headNode, int index) {
+        int length = getLength(headNode);
+        if (index <= 0 || index > length) {
+            return null;
+        }
+        Node temp = headNode.next;
+        for (int i = 0; i < (length - index); i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
 
     public static class Node {
         private int no;

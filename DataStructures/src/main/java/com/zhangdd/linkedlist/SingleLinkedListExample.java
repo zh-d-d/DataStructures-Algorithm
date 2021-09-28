@@ -88,4 +88,36 @@ public class SingleLinkedListExample {
         linkedList.list();
 
     }
+
+    @Test
+    public void linkListLengthTest(){
+        SingleLinkedList.Node node1 = new SingleLinkedList.Node(1, "曹操", "曹孟德");
+        SingleLinkedList.Node node2 = new SingleLinkedList.Node(2, "刘备", "刘玄德");
+        SingleLinkedList.Node node3 = new SingleLinkedList.Node(3, "吕布", "吕奉先");
+        SingleLinkedList.Node node4 = new SingleLinkedList.Node(4, "周瑜", "周公瑾");
+
+        SingleLinkedList linkedList = new SingleLinkedList();
+        linkedList.add(node1);
+        linkedList.add(node2);
+        linkedList.add(node4);
+        linkedList.add(node3);
+
+        System.out.println(linkedList.getLength(linkedList.getHead()));
+    }
+
+    @Test
+    public void findLastIndexNodeTest(){
+        SingleLinkedList.Node node1 = new SingleLinkedList.Node(1, "曹操", "曹孟德");
+        SingleLinkedList.Node node2 = new SingleLinkedList.Node(2, "刘备", "刘玄德");
+        SingleLinkedList.Node node3 = new SingleLinkedList.Node(3, "吕布", "吕奉先");
+        SingleLinkedList.Node node4 = new SingleLinkedList.Node(4, "周瑜", "周公瑾");
+
+        SingleLinkedList linkedList = new SingleLinkedList();
+        linkedList.add(node1);
+        linkedList.add(node2);
+        linkedList.add(node3);
+        linkedList.add(node4);
+
+        System.out.println(linkedList.findLastIndexNode(linkedList.getHead(), 4));
+    }
 }
