@@ -7,7 +7,9 @@ import org.junit.Test;
  */
 public class SingleLinkedListExample {
 
-    public static void main(String[] args) {
+
+    @Test
+    public void simpleListAddTest() {
         SingleLinkedList.Node node1 = new SingleLinkedList.Node(1, "曹操", "曹孟德");
         SingleLinkedList.Node node2 = new SingleLinkedList.Node(2, "刘备", "刘玄德");
         SingleLinkedList.Node node3 = new SingleLinkedList.Node(3, "吕布", "吕奉先");
@@ -15,21 +17,44 @@ public class SingleLinkedListExample {
 
         SingleLinkedList linkedList = new SingleLinkedList();
         //普通添加
-        //linkedList.add(node1);
-        //linkedList.add(node2);
-        //linkedList.add(node4);
-        //linkedList.add(node3);
+        linkedList.add(node1);
+        linkedList.add(node2);
+        linkedList.add(node4);
+        linkedList.add(node3);
 
-        ////按编号顺序添加
-        //linkedList.addByOrder(node1);
-        //linkedList.addByOrder(node2);
-        //linkedList.addByOrder(node4);
-        //linkedList.addByOrder(node3);
-        //
-        ////删除节点
-        //linkedList.del(1);
+        linkedList.list();
+    }
 
-        //====================
+    @Test
+    public void orderListAddTest() {
+        SingleLinkedList.Node node1 = new SingleLinkedList.Node(1, "曹操", "曹孟德");
+        SingleLinkedList.Node node2 = new SingleLinkedList.Node(2, "刘备", "刘玄德");
+        SingleLinkedList.Node node3 = new SingleLinkedList.Node(3, "吕布", "吕奉先");
+        SingleLinkedList.Node node4 = new SingleLinkedList.Node(4, "周瑜", "周公瑾");
+
+        SingleLinkedList linkedList = new SingleLinkedList();
+
+        //按编号顺序添加
+        linkedList.addByOrder(node1);
+        linkedList.addByOrder(node2);
+        linkedList.addByOrder(node4);
+        linkedList.addByOrder(node3);
+
+        //删除节点
+        linkedList.del(1);
+
+        linkedList.list();
+    }
+
+    @Test
+    public void updateListTest() {
+        SingleLinkedList.Node node1 = new SingleLinkedList.Node(1, "曹操", "曹孟德");
+        SingleLinkedList.Node node2 = new SingleLinkedList.Node(2, "刘备", "刘玄德");
+        SingleLinkedList.Node node3 = new SingleLinkedList.Node(3, "吕布", "吕奉先");
+        SingleLinkedList.Node node4 = new SingleLinkedList.Node(4, "周瑜", "周公瑾");
+
+        SingleLinkedList linkedList = new SingleLinkedList();
+
 
         //按编号顺序添加
         linkedList.addByOrder(node1);
@@ -41,6 +66,7 @@ public class SingleLinkedListExample {
 
         linkedList.list();
     }
+
 
     @Test
     public void revertListTest() {
