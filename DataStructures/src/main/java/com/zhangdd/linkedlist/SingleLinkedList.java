@@ -8,6 +8,10 @@ public class SingleLinkedList {
     //初始化头节点，仅仅用作链表的标识头，不做有效数据
     private Node head = new Node(0, null, null);
 
+    public Node getHead() {
+        return head;
+    }
+
     /**
      * 添加节点时，找到当前链表的最后一个节点，进行设置
      *
@@ -72,6 +76,27 @@ public class SingleLinkedList {
         }
         node.next = temp.next.next;
         temp.next = node;
+    }
+
+    /**
+     * 将链表反转
+     *
+     * @param headNode 链表的头节点
+     */
+    public void revertList(Node headNode) {
+        if (headNode.next == null || headNode.next.next == null) {
+            return;
+        }
+        Node newHead = new Node(0, null, null);
+        Node curNode = headNode.next;
+        Node nextNode;
+        while (curNode != null) {
+            nextNode = curNode.next;
+            curNode.next = newHead.next;
+            newHead.next = curNode;
+            curNode = nextNode;
+        }
+        headNode.next = newHead.next;
     }
 
 
