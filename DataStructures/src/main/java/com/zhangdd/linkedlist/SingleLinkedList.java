@@ -1,5 +1,7 @@
 package com.zhangdd.linkedlist;
 
+import java.util.Stack;
+
 /**
  * @author zhangdd on 2021/9/26
  */
@@ -168,6 +170,35 @@ public class SingleLinkedList {
             temp = temp.next;
         }
         return temp;
+    }
+
+    private Stack<Node> trans2Stack(Node headNode) {
+        Stack<Node> result = new Stack<>();
+        Node temp = headNode.next;
+        while (temp != null) {
+            result.push(temp);
+            temp = temp.next;
+        }
+        return result;
+    }
+
+    /**
+     * 合并顺序链表，并保持合并特性
+     */
+    public SingleLinkedList mergeOrderLinkList(Node anotherHeadNode) {
+        SingleLinkedList linkedList = new SingleLinkedList();
+
+        Stack<Node> nodes = trans2Stack(this.getHead());
+        while (nodes.size() > 0) {
+            linkedList.addByOrder(nodes.pop());
+        }
+
+        Stack<Node> nodes1 = trans2Stack(anotherHeadNode);
+        while (nodes1.size() > 0) {
+            linkedList.addByOrder(nodes1.pop());
+        }
+
+        return linkedList;
     }
 
 

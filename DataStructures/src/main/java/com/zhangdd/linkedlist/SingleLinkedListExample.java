@@ -90,7 +90,7 @@ public class SingleLinkedListExample {
     }
 
     @Test
-    public void linkListLengthTest(){
+    public void linkListLengthTest() {
         SingleLinkedList.Node node1 = new SingleLinkedList.Node(1, "曹操", "曹孟德");
         SingleLinkedList.Node node2 = new SingleLinkedList.Node(2, "刘备", "刘玄德");
         SingleLinkedList.Node node3 = new SingleLinkedList.Node(3, "吕布", "吕奉先");
@@ -106,7 +106,7 @@ public class SingleLinkedListExample {
     }
 
     @Test
-    public void findLastIndexNodeTest(){
+    public void findLastIndexNodeTest() {
         SingleLinkedList.Node node1 = new SingleLinkedList.Node(1, "曹操", "曹孟德");
         SingleLinkedList.Node node2 = new SingleLinkedList.Node(2, "刘备", "刘玄德");
         SingleLinkedList.Node node3 = new SingleLinkedList.Node(3, "吕布", "吕奉先");
@@ -119,5 +119,26 @@ public class SingleLinkedListExample {
         linkedList.add(node4);
 
         System.out.println(linkedList.findLastIndexNode(linkedList.getHead(), 4));
+    }
+
+    @Test
+    public void mergeOrderLinkListTest() {
+        SingleLinkedList.Node node1 = new SingleLinkedList.Node(1, "曹操", "曹孟德");
+        SingleLinkedList.Node node2 = new SingleLinkedList.Node(2, "刘备", "刘玄德");
+        SingleLinkedList.Node node3 = new SingleLinkedList.Node(3, "吕布", "吕奉先");
+        SingleLinkedList.Node node4 = new SingleLinkedList.Node(4, "周瑜", "周公瑾");
+
+        SingleLinkedList linkedList1 = new SingleLinkedList();
+        linkedList1.addByOrder(node1);
+        linkedList1.addByOrder(node3);
+
+        SingleLinkedList linkedList2 = new SingleLinkedList();
+        linkedList2.addByOrder(node2);
+        linkedList2.addByOrder(node4);
+
+        SingleLinkedList linkedList = linkedList1
+                .mergeOrderLinkList(linkedList2.getHead());
+        linkedList.list();
+
     }
 }
