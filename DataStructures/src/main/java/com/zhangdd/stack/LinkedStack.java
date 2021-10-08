@@ -46,14 +46,35 @@ public class LinkedStack {
         return value;
     }
 
+    /**
+     * 先遍历原来的链表内容，构造出一个反转后的链表，然后顺序打印反转后的链表
+     */
     public void list() {
         if (isEmpty()) {
             throw new RuntimeException("当前队列为空");
         }
+
+        //遍历原来链表，构造一个反转链表
         Node temp = head.next;
+        Node newHead = new Node(-1, null);
+        while (true) {
+            if (newHead.next != null) {
+                temp.next = newHead.next;
+            }
+            newHead.next = temp;
+            temp = temp.next;
+
+            if (temp == null) {
+
+                break;
+            }
+        }
+
+        //遍历反转后的链表
+        temp = newHead.next;
         while (true) {
             System.out.printf("%d\n", temp.value);
-            if (temp == top) {
+            if (temp.next == null) {
                 break;
             }
             temp = temp.next;
