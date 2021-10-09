@@ -9,7 +9,7 @@ public class LinkedStack {
 
 
     private boolean isEmpty() {
-        return top == null;
+        return head.next == null;
     }
 
     public void push(int value) {
@@ -39,9 +39,11 @@ public class LinkedStack {
         }
         int value = top.value;
         if (emptyFlag) {
+            head.next = null;
             top = null;
         } else {
             top = temp;
+            top.next = null;
         }
         return value;
     }
@@ -55,23 +57,22 @@ public class LinkedStack {
         }
 
         //遍历原来链表，构造一个反转链表
-        Node temp = head.next;
-        Node newHead = new Node(-1, null);
-        while (true) {
-            if (newHead.next != null) {
-                temp.next = newHead.next;
-            }
-            newHead.next = temp;
-            temp = temp.next;
+        LinkedStack newStack = new LinkedStack();
 
-            if (temp == null) {
+        Node currentNode = this.head.next;
 
-                break;
+        while (currentNode != null) {
+            Node temp = new Node(currentNode.value, null);
+            if (!newStack.isEmpty()) {
+                temp.next = newStack.head.next;
             }
+            newStack.head.next = temp;
+
+            currentNode = currentNode.next;
         }
 
         //遍历反转后的链表
-        temp = newHead.next;
+        Node temp = newStack.head.next;
         while (true) {
             System.out.printf("%d\n", temp.value);
             if (temp.next == null) {
