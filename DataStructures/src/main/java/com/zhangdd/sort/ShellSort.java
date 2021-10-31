@@ -59,6 +59,8 @@ public class ShellSort {
                         int temp = arr[j];
                         arr[j] = arr[j + step];
                         arr[j + step] = temp;
+                    } else {
+                        break;
                     }
                 }
             }
