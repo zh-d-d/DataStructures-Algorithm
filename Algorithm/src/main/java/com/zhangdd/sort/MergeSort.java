@@ -1,21 +1,28 @@
 package com.zhangdd.sort;
 
+import java.util.Arrays;
+
 /**
  * @author zhangdd on 2021/11/2
  */
 public class MergeSort {
 
     public static void main(String[] args) {
+//        int[] arr = {7, 3, 10, 2, 4, 1, 15, 21, 8, 3};
+        int[] arr = {7, 3, 4};
+        int[] temp = new int[arr.length];
+        mergeSort(arr, 0, arr.length - 1, temp);
 
+        System.out.println(Arrays.toString(arr));
     }
 
     private static void mergeSort(int[] arr, int left, int right, int[] temp) {
-        while (left < right) {
+        if (left < right) {
             int mid = (left + right) / 2;
             mergeSort(arr, left, mid, temp);
             mergeSort(arr, mid + 1, right, temp);
 
-//            merge(arr,left,mid,right,temp);
+            merge(arr, left, mid, right, temp);
         }
 
     }
