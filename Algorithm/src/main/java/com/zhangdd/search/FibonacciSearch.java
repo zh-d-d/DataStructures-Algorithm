@@ -66,6 +66,7 @@ public class FibonacciSearch {
                 fibonacciArrIndex -= 2;
             } else {
 
+                //这里找到了，返回较小的一个下标
                 return Math.min(mid, right);
             }
 
