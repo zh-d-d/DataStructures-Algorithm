@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * @author zhangdd on 2021/11/10
  */
-public class HashTableDemo {
+public class HashTableExample {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
