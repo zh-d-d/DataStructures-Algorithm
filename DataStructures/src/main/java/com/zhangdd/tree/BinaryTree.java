@@ -35,6 +35,43 @@ public class BinaryTree {
         root.postOrder();
     }
 
+    public TreeNode preSearch(int no) {
+        if (null == root) {
+            System.out.println("当前树空");
+            return null;
+        }
+        return root.preSearch(no);
+    }
+
+    public TreeNode infixSearch(int no) {
+        if (null == root) {
+            System.out.println("当前树空");
+            return null;
+        }
+
+        return root.infixSearch(no);
+    }
+
+    public TreeNode postSearch(int no) {
+        if (null == root) {
+            System.out.println("当前树空");
+            return null;
+        }
+
+        return root.postSearch(no);
+    }
+
+    public void remove(int no) {
+        if (null == root) {
+            System.out.println("当前树空");
+            return;
+        }
+        if (root.no == no) {
+            root = null;
+        }
+        root.remove(no);
+    }
+
 
     public static class TreeNode {
         private int no;
@@ -107,6 +144,83 @@ public class BinaryTree {
                 this.right.postOrder();
             }
             System.out.println(this);
+        }
+
+        public TreeNode preSearch(int no) {
+            if (this.no == no) {
+                return this;
+            }
+            TreeNode result = null;
+            if (null != this.left) {
+                result = this.left.preSearch(no);
+            }
+            if (null != result) {
+                return result;
+            }
+            if (null != this.right) {
+                result = this.right.preSearch(no);
+            }
+
+            return result;
+        }
+
+        public TreeNode infixSearch(int no) {
+            TreeNode result = null;
+            if (null != this.left) {
+                result = this.left.infixSearch(no);
+            }
+            if (null != result) {
+                return result;
+            }
+            if (this.no == no) {
+                return this;
+            }
+            if (null != this.right) {
+                result = this.right.infixSearch(no);
+            }
+
+            return result;
+        }
+
+        public TreeNode postSearch(int no) {
+            TreeNode result = null;
+            if (null != this.left) {
+                result = this.left.postSearch(no);
+            }
+            if (null != result) {
+                return result;
+            }
+
+            if (null != this.right) {
+                result = this.right.postSearch(no);
+            }
+
+            if (null != result) {
+                return result;
+            }
+
+            if (this.no == no) {
+                return this;
+            }
+
+            return result;
+        }
+
+        public void remove(int no) {
+            if (null != this.left && this.left.no == no) {
+                this.left = null;
+                return;
+            }
+            if (null != this.right && this.right.no == no) {
+                this.right = null;
+                return;
+            }
+            if (null != this.left) {
+                this.left.remove(no);
+            }
+            if (null != this.right) {
+                this.right.remove(no);
+            }
         }
 
         @Override
