@@ -33,7 +33,7 @@ public class ThreadedBinaryTree {
         //处理当前节点 的前驱节点
         if (null == node.left) {
             node.left = pre;
-            node.leftType = 0;
+            node.leftType = 1;
         }
         //处理当前节点 的后继节点
         if (null != pre && null == pre.right) {
