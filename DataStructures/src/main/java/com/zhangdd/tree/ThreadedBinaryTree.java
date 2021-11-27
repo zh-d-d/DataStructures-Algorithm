@@ -35,7 +35,7 @@ public class ThreadedBinaryTree {
             node.left = pre;
             node.leftType = 1;
         }
-        //处理当前节点 的后继节点
+        //处理上一个节点 的后继节点
         if (null != pre && null == pre.right) {
             pre.right = node;
             pre.rightType = 1;
@@ -46,6 +46,46 @@ public class ThreadedBinaryTree {
 
         //处理右节点
         infixThreaded(node.right);
+
+    }
+
+    /**
+     * 中序遍历线索化二叉树
+     */
+    public void infixListThreadedTree() {
+        infixListThreadedTree(root);
+    }
+
+    /**
+     * 中序遍历线索化二叉树
+     * 首先中序遍历的基本思想是先左节点，在当前节点，在右节点
+     * <p>
+     * 1.从当前节点开始，判断当前节点的左节点是否是前驱节点类型，如果是，那么当前节点就是第一个节点，且当前节点的左节点还为null
+     * 2.输出当前节点
+     * 3.判断当前节点的右节点类型是否是后继节点，如果是则可以一直输出（因为在实现线索化时，）
+     */
+    private void infixListThreadedTree(Node node) {
+
+        if (null == node) {
+            return;
+        }
+        Node temp = node;
+
+        while (null != temp) {
+
+            while (1 != temp.leftType) {
+                temp = temp.left;
+            }
+            System.out.println(temp);
+
+
+            while (1 == temp.rightType) {
+                temp = temp.right;
+                System.out.println(temp);
+            }
+
+            temp = temp.right;
+        }
 
     }
 

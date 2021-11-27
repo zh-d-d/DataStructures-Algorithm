@@ -26,9 +26,10 @@ public class ThreadedBinaryTreeExample {
 
         tree.infixThreaded();
 
-        System.out.println("10号节点的前驱节点是"+node4.getLeft());
-        System.out.println("10号节点的后继节点是"+node4.getRight());
+//        System.out.println("10号节点的前驱节点是"+node4.getLeft());
+//        System.out.println("10号节点的后继节点是"+node4.getRight());
 
+        tree.infixListThreadedTree();
     }
 
 }
