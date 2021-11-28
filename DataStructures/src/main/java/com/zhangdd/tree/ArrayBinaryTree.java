@@ -27,7 +27,7 @@ public class ArrayBinaryTree {
             return;
         }
         System.out.println(arr[index]);
-        //向做遍历
+        //向左遍历
         preOrder(2 * index + 1);
 
         //向右遍历
