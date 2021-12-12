@@ -1,6 +1,5 @@
 package com.zhangdd.stack;
 
-import com.sun.deploy.util.StringUtils;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -63,9 +62,7 @@ public class PolandNotation {
         while (!s1.isEmpty()) {
             s2.add(s1.pop());
         }
-
-
-        return StringUtils.join(s2," ");
+        return String.join(" ", s2);
     }
 
 
