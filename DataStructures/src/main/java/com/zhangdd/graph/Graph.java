@@ -3,6 +3,7 @@ package com.zhangdd.graph;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @author zhangdd on 2021/12/11
@@ -69,6 +70,44 @@ public class Graph {
             neighborIndex = getNextNeighbor(vertexIndex, neighborIndex);
         }
     }
+    //endregion=深度优先遍历==end
+
+    //region====广度优先遍历==start
+    public void bfs() {
+        boolean[] visited = new boolean[vertexList.size()];
+
+        for (String vertex : vertexList) {
+            int vertexIndex = vertexList.indexOf(vertex);
+            if (visited[vertexIndex]) {
+                continue;
+            }
+            bfs(visited, vertexIndex);
+        }
+    }
+
+    private void bfs(boolean[] visited, int vertexIndex) {
+        System.out.print(vertexList.get(vertexIndex) + "->");
+        visited[vertexIndex] = true;
+        Stack<Integer> vertexIndexSet = new Stack<>();
+        vertexIndexSet.push(vertexIndex);
+
+        while (!vertexIndexSet.empty()) {
+            Integer topVertexIndex = vertexIndexSet.pop();
+            int neighborIndex = getFirstNeighbor(topVertexIndex);
+            while (-1 != neighborIndex) {
+                if (visited[neighborIndex]) {
+                    neighborIndex = getNextNeighbor(topVertexIndex, neighborIndex);
+                    continue;
+                }
+                System.out.print(vertexList.get(neighborIndex) + "->");
+                visited[neighborIndex] = true;
+                vertexIndexSet.push(neighborIndex);
+                neighborIndex = getNextNeighbor(topVertexIndex, neighborIndex);
+            }
+        }
+    }
+
+    //endregion=广度优先遍历==end
 
     /**
      * 获取指定节点的第一个邻接节点，如果不存在，则返回-1

@@ -32,5 +32,9 @@ public class GraphExample {
 
         graph.dfs();
 
+        System.out.println("图的广度优先遍历");
+
+        graph.bfs();
+
     }
 }
