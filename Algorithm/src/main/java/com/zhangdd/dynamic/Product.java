@@ -8,9 +8,16 @@ public class Product {
 
     private final Integer weight;
 
-    public Product(int value, int weight) {
+    private final String name;
+
+    public Product(int value, int weight,String name) {
         this.value = value;
         this.weight = weight;
+        this.name=name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getValue() {
