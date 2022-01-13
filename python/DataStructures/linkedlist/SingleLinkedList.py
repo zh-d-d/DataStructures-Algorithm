@@ -64,6 +64,36 @@ class LinkList:
             tmp.next.show()
             tmp = tmp.next
 
+    def count(self):
+        tmp = self.head
+        count = 0
+        while tmp.next is not None:
+            tmp = tmp.next
+            count += 1
+        return count
+
+    def last_index_node(self, index):
+        length = self.count()
+        if index <= 0 or index > length:
+            raise Exception('索引不合法')
+        tmp = self.head
+        for i in range(length - index + 1):
+            tmp = tmp.next
+        return tmp
+
+    def revert(self):
+        if self.head.next is None:
+            return
+        new_head = Node(-1, None)
+        cur_ele = self.head.next
+        while cur_ele is not None:
+            next_ele = cur_ele.next
+            cur_ele.next = new_head.next
+            new_head.next = cur_ele
+
+            cur_ele = next_ele
+        self.head.next = new_head.next
+
 
 link_list = LinkList()
 link_list.show()
@@ -86,3 +116,16 @@ link_list.show()
 print('-' * 50)
 
 link_list.get_node(3)
+
+print('-' * 50)
+
+print(link_list.count())
+
+print('-' * 50)
+
+link_list.last_index_node(2).show()
+
+print('-' * 50)
+
+link_list.revert()
+link_list.show()
