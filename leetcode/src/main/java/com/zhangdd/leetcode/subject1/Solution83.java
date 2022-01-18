@@ -1,5 +1,7 @@
 package com.zhangdd.leetcode.subject1;
 
+import com.zhangdd.leetcode.subjectunknow.ListNode;
+
 import java.util.Arrays;
 
 public class Solution83 {
@@ -44,19 +46,3 @@ public class Solution83 {
 }
 
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
