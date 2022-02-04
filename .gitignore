@@ -69,4 +69,6 @@ fabric.properties
 
 *.iml
 
+*.pyc
+
 target/

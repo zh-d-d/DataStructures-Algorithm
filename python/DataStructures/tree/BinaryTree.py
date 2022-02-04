@@ -58,6 +58,56 @@ class Node:
     def set_right(self, node):
         self.right = node
 
+    def pre_search(self, no):
+        if self.no == no:
+            return self
+        result = None
+        if self.left is not None:
+            result = self.left.pre_search(no)
+
+        if result is not None:
+            return result
+
+        if self.right is not None:
+            result = self.right.pre_search(no)
+
+        return result
+
+    def infix_search(self, no):
+        result = None
+        if self.left is not None:
+            result = self.left.infix_search(no)
+
+        if result is not None:
+            return result
+
+        if self.no == no:
+            return self
+
+        if self.right is not None:
+            result = self.right.infix_search(no)
+
+        return result
+
+    def post_search(self, no):
+        result = None
+        if self.left is not None:
+            result = self.left.post_search(no)
+
+        if result is not None:
+            return result
+
+        if self.right is not None:
+            result = self.right.post_search(no)
+
+        if result is not None:
+            return result
+
+        if self.no == no:
+            return self
+
+        return result
+
 
 class BinaryTree:
     def __init__(self, node):
@@ -90,6 +140,24 @@ class BinaryTree:
             return
         self.root.remove(no)
 
+    def pre_search(self, no):
+        if self.root is None:
+            print('当前树空')
+            return
+        return self.root.pre_search(no)
+
+    def infix_search(self, no):
+        if self.root is None:
+            print('当前树空')
+            return
+        return self.root.infix_search(no)
+
+    def post_search(self, no):
+        if self.root is None:
+            print('当前树空')
+            return
+        return self.root.post_search(no)
+
 
 if __name__ == '__main__':
     root = Node(1, '宋江')
@@ -114,13 +182,3 @@ if __name__ == '__main__':
 
     print('后序')
     tree.post_order()
-
-    print('-' * 50)
-    tree.remove(4)
-    print('删除节点4后')
-    tree.pre_order()
-    print('-' * 50)
-
-    tree.remove(1)
-    print('删除节点1后')
-    tree.pre_order()
