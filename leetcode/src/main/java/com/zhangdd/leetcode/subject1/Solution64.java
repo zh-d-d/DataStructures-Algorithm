@@ -1,4 +1,4 @@
-package com.zhangdd.leetcode.subject5;
+package com.zhangdd.leetcode.subject1;
 
 import java.util.Arrays;
 
