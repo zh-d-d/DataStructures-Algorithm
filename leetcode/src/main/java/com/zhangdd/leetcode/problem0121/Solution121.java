@@ -1,8 +1,5 @@
 package com.zhangdd.leetcode.problem0121;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author zhangdd on 2022/12/8
  * <a href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/">题目描述</a>
