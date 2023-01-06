@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * @author zhangdd on 2023/1/4
+ *
+ * <a href="https://leetcode.cn/problems/ugly-number/">题目描述</a>
  */
 public class Solution263 {
     public boolean isUgly(int n) {
