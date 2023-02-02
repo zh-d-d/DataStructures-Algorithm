@@ -10,16 +10,20 @@ public class Solution206 {
         if (null == head) {
             return null;
         }
-        ListNode result = new ListNode(-1);
-        while (null != head) {
-            ListNode tmp = new ListNode(head.val);
-            tmp.next = result.next;
-            result.next = tmp;
 
-            head = head.next;
+        ListNode newHead = null;
+        ListNode pre = null;
+        ListNode cur = head;
+        while (null != cur) {
+            ListNode next = cur.next;
+            if (null == next) {
+                newHead = cur;
+            }
+            cur.next = pre;
+            pre = cur;
+            cur = next;
         }
-
-        return result.next;
+        return newHead;
     }
 }
 
