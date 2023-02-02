@@ -1,4 +1,4 @@
-package com.zhangdd.leetcode.problem.part01.problem0100;
+package com.zhangdd.leetcode.problem.part02.problem0100;
 
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.zhangdd.leetcode.problem.part01.problem0104;
+package com.zhangdd.leetcode.problem.part02.problem0104;
 
 /**
  * @author zhangdd on 2022/12/7
