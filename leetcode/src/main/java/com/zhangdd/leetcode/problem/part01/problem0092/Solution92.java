@@ -9,13 +9,15 @@ public class Solution92 {
 
     public static void main(String[] args) {
         Solution92 solution = new Solution92();
-//        ListNode root = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
-        ListNode root = new ListNode(3, new ListNode(5));
-        ListNode node = solution.reverseBetween(root, 1, 2);
+        ListNode root = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+//        ListNode root = new ListNode(3, new ListNode(5));
+        ListNode node = solution.reverseBetween(root, 2, 4);
 
     }
 
-
+    /**
+     * 优化版
+     */
     public ListNode reverseBetween(ListNode head, int left, int right) {
         if (null == head.next) {
             return head;
@@ -23,48 +25,82 @@ public class Solution92 {
         if (left == right) {
             return head;
         }
+        ListNode newHead = new ListNode();
+        newHead.next = head;
+        ListNode startNodePre = newHead;
 
-        ListNode startNode = null;
-        ListNode startNodePre = null;
-        ListNode endNode = null;
-        ListNode endNodeNext = null;
-
-        int i = 1;
-        ListNode headTmp = head;
-        ListNode headPreTmp = null;
-        while (null == startNode || null == endNode) {
-            if (i == left) {
-                startNode = headTmp;
-                startNodePre = headPreTmp;
-            }
-            if (i == right) {
-                endNode = headTmp;
-                endNodeNext = endNode.next;
-            }
-            i++;
-            headPreTmp = headTmp;
-            headTmp = headTmp.next;
+        //对于left前面的直接移动
+        for (int i = 1; i < left; i++) {
+            startNodePre = startNodePre.next;
         }
 
+        //将head移动到left那里
+        head = startNodePre.next;
 
+        //反转指定位置内的链表
         int size = right - left;
-        ListNode tmpPre = endNodeNext;
-        while (size >= 0) {
-            ListNode next = startNode.next;
+        while (size > 0) {
+            ListNode next = head.next;
 
-            startNode.next = tmpPre;
-            tmpPre = startNode;
-            startNode = next;
+            head.next = next.next;
+            next.next = startNodePre.next;
+            startNodePre.next = next;
+
             size--;
         }
 
-        if (null != startNodePre) {
-            startNodePre.next = tmpPre;
-            return head;
-        } else {
-            return tmpPre;
-        }
+        return newHead.next;
     }
+
+//    public ListNode reverseBetween(ListNode head, int left, int right) {
+//        if (null == head.next) {
+//            return head;
+//        }
+//        if (left == right) {
+//            return head;
+//        }
+//
+//        ListNode startNode = null;
+//        ListNode startNodePre = null;
+//        ListNode endNode = null;
+//        ListNode endNodeNext = null;
+//
+//        int i = 1;
+//        ListNode headTmp = head;
+//        ListNode headPreTmp = null;
+//        while (null == startNode || null == endNode) {
+//            if (i == left) {
+//                startNode = headTmp;
+//                startNodePre = headPreTmp;
+//            }
+//            if (i == right) {
+//                endNode = headTmp;
+//                endNodeNext = endNode.next;
+//            }
+//            i++;
+//            headPreTmp = headTmp;
+//            headTmp = headTmp.next;
+//        }
+//
+//
+//        int size = right - left;
+//        ListNode tmpPre = endNodeNext;
+//        while (size >= 0) {
+//            ListNode next = startNode.next;
+//
+//            startNode.next = tmpPre;
+//            tmpPre = startNode;
+//            startNode = next;
+//            size--;
+//        }
+//
+//        if (null != startNodePre) {
+//            startNodePre.next = tmpPre;
+//            return head;
+//        } else {
+//            return tmpPre;
+//        }
+//    }
 }
 
 
