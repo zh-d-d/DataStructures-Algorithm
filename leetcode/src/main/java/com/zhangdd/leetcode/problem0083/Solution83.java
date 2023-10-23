@@ -1,10 +1,10 @@
-package com.zhangdd.leetcode.problem0071;
+package com.zhangdd.leetcode.problem0083;
 
 /**
  * @author zhangdd on 2022/12/1
  * <a href="https://leetcode.cn/problems/remove-duplicates-from-sorted-list/">题目描述</a>
  */
-public class Solution71 {
+public class Solution83 {
 
     public ListNode deleteDuplicates(ListNode head) {
         if (null == head || null == head.next) {
