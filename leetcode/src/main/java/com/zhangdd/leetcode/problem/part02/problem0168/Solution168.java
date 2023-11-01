@@ -3,7 +3,7 @@ package com.zhangdd.leetcode.problem.part02.problem0168;
 /**
  * @author zhangdd on 2022/12/13
  *
- * <a href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">题目描述</a>
+ * <a href="https://leetcode.cn/problems/excel-sheet-column-title/">题目描述</a>
  */
 public class Solution168 {
 
