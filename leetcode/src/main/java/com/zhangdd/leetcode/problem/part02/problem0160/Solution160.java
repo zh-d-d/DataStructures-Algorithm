@@ -1,8 +1,5 @@
 package com.zhangdd.leetcode.problem.part02.problem0160;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author zhangdd on 2022/12/8
  * <a href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">题目描述</a>
